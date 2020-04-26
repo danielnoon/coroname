@@ -4,5 +4,5 @@ export interface IError {
 }
 
 export function error(message: string): IError {
-  return { code: -1, message }
+  return { code: -1, message };
 }

@@ -23,7 +23,7 @@ export async function kitsuArrayToCoroname(kitsu: any[]) {
 }
 
 export async function kitsuToCoroname(anime: any) {
-  const id = parseInt(anime.id as string);
+  const id = parseInt(anime.id as string, 10);
   const title = anime.canonicalTitle as string;
   const poster =
     anime.posterImage && anime.posterImage.large
