@@ -1,4 +1,4 @@
-import { HttpError } from "./http-error";
+import { HttpError } from './http-error';
 
 export default function validate(body: any, validators: string[]) {
   for (const validator of validators) {
@@ -21,8 +21,7 @@ function validateType(value: any, type: string): boolean {
         return value !== '';
       } else return false;
     } else return typeof value === type;
-  }
-  else {
+  } else {
     if (type === 'number' && typeof value === 'string') {
       if (!isNaN(parseFloat(value))) return true;
     }
