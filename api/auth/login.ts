@@ -1,10 +1,10 @@
-import t from 'api/helpers/thunk';
-import validate from 'api/helpers/validate';
-import { HttpError } from 'api/helpers/http-error';
-import { response } from 'api/models/response';
-import { IUser, User } from 'api/models/user';
-import { generateToken } from 'api/helpers/auth';
-import { hash, compare } from 'api/helpers/hash';
+import t from 'api-helpers/thunk';
+import validate from 'api-helpers/validate';
+import { HttpError } from 'api-helpers/http-error';
+import { response } from 'api-helpers/models/response';
+import { IUser, User } from 'api-helpers/models/user';
+import { generateToken } from 'api-helpers/auth';
+import { hash, compare } from 'api-helpers/hash';
 
 export default t(async (req, res) => {
     validate(req.body, ["username:string!", "password:string!"]);

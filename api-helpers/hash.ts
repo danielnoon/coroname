@@ -1,5 +1,5 @@
 import bcrypt from 'bcrypt';
-import { HASH_ROUNDS } from 'api/helpers/constants';
+import { HASH_ROUNDS } from './constants';
 
 export function compare(test: string, actual: string) {
     return bcrypt.compare(test, actual)
