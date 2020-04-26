@@ -5,9 +5,12 @@ import { response } from 'api-helpers/models/response';
 import { IUser, User } from 'api-helpers/models/user';
 import { generateToken } from 'api-helpers/auth';
 import { hash, compare } from 'api-helpers/hash';
+import { connect } from 'api-helpers/mongo';
 
 export default t(async (req, res) => {
     validate(req.body, ["username:string!", "password:string!"]);
+
+    connect();
   
     const u = req.body as IUser;
     
