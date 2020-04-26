@@ -30,6 +30,7 @@
     "core-js": "^2.5.4",
     "jsonwebtoken": "^8.5.1",
     "jwt-decode": "^2.2.0",
+    "kitsu": "^8.2.0",
     "mongoose": "^5.9.5",
     "rxjs": "~6.5.1",
     "ts-md5": "^1.2.7",

@@ -5,10 +5,10 @@ import { Response } from 'src/models/response';
 import { Error } from 'src/models/error';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ApiService {
-  constructor(private toastController: ToastController) { }
+  constructor(private toastController: ToastController) {}
 
   private constructEndpoint(route: string, query?: string) {
     return `${environment.api}/${route}${query ? '?' + query : ''}`;
@@ -22,7 +22,8 @@ export class ApiService {
     body?: string | FormData;
   }): Promise<Response<T>> {
     try {
-      let { route, method, headers, query, body } = options;
+      const { route, method, query, body } = options;
+      let { headers } = options;
 
       if (!headers) {
         headers = new Headers();
@@ -41,15 +42,15 @@ export class ApiService {
       const response = await fetch(this.constructEndpoint(route, query), {
         method,
         headers,
-        body
+        body,
       });
 
       const json = (await response.json()) as Response<T> | Error;
 
-      if (json.code == -1) {
+      if (json.code === -1) {
         this.error(json as Error);
       }
-      
+
       return json as Response<T>;
     } catch (err) {
       this.error(err);
@@ -61,7 +62,7 @@ export class ApiService {
       color: 'danger',
       message: err.message,
       position: 'bottom',
-      duration: 4000
+      duration: 4000,
     });
     toast.present();
   }
