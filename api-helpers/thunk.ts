@@ -7,6 +7,10 @@ const t = (fn: (req: Request, res: Response) => Promise<any>) => (
   res: Response
 ) =>
   fn(req, res).catch((err: Error) => {
+    if (!(err instanceof HttpError)) {
+      console.error(err.message);
+      console.error(err.stack);
+    }
     res.json(error(err.message));
   });
 
