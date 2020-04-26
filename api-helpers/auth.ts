@@ -1,6 +1,6 @@
-import { IUser, User } from '../models/user';
+import { IUser, User } from './models/user';
 import jwt from 'jsonwebtoken';
-import { Token } from '../models/token';
+import { Token } from './models/token';
 import { HttpError } from './http-error';
 
 const TEST_SECRET = 'g4bno9ui2';

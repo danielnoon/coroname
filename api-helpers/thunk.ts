@@ -1,6 +1,6 @@
 import { NowRequest as Request, NowResponse as Response } from '@now/node';
 import { HttpError } from './http-error';
-import { error } from 'src/models/api/error';
+import { error } from './models/error';
 
 const t = (fn: (req: Request, res: Response) => Promise<any>) => (
   req: Request,

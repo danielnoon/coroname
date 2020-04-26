@@ -17,13 +17,19 @@ function validateType(value: any, type: string): boolean {
   if (required) {
     type = type.substring(0, type.length - 1);
     if (type === 'string') {
-      if (typeof value == 'string') {
+      if (typeof value === 'string') {
         return value !== '';
-      } else return false;
-    } else return typeof value === type;
+      } else {
+        return false;
+      }
+    } else {
+      return typeof value === type;
+    }
   } else {
     if (type === 'number' && typeof value === 'string') {
-      if (!isNaN(parseFloat(value))) return true;
+      if (!isNaN(parseFloat(value))) {
+        return true;
+      }
     }
     return typeof value === type || value === undefined || value === null;
   }
